@@ -1,0 +1,41 @@
+- MxProgNode: Location
+- DeclarationsNode
+    - DeclNode: ID-name
+        - VarDeclNode: VarType
+        - FuncDeclNode: RetType, ParaList, FuncBlock
+        - ClassDeclNode: VarDeclList, FunDeclList
+    - StateNode
+        - ExprStateNode
+        - ForStateNode: StartExpr, StopExpr, StepExpr, ForStatement
+        - WhileStateNode: ConditionExpr, WhileStatement
+        - ContinueStateNode
+        - BreakStateNode
+        - ReturnStateNode: RetExpr
+        - IfStateNode: ConditionExpr, thenState, elseState
+        - FuncBlockNode: FuncStateList, VarDeclList
+    - ExprNode: Type, AssocType
+        - MemoryAccessExprNode: HostExpr, MemberStr
+        - FunctionCallExprNode: FuncExpr, paraList
+        - ArrayAccessExprNode: arrExpr, subExpr
+        - PostFixExprNode: PreExpr, op
+        - PreFixExprNode: op, PostExpr
+        - NewExprNode: newType, totalDim, knownDims
+        - BinaryExprNode: lhs, op, rhs
+        - AssignExprNode: lhs, rhs
+        - ThisExprNode: 
+        - IdentExprNode: name, type
+        - ConstNode: Type
+            - IntConstNode: value
+            - StringConstNode: value
+            - BoolConstNode: value
+            - NullConstNode
+- TypeNode: Type
+- Type: BaseType
+    - ArrayType: arrType(数组元素的类型)
+    - FuncType: funcName
+    - ClassType: classIdent
+    - IntType
+    - StringType
+    - BoolType
+    - NullType
+    - VoidType
